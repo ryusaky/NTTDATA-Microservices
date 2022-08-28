@@ -1,0 +1,13 @@
+package com.bootcamp.bank.components;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ComponentesBaseApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ComponentesBaseApplication.class, args);
+	}
+
+}
