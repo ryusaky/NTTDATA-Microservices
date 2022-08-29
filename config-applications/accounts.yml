@@ -1,6 +1,6 @@
 spring:
   application:
-    name: "movements-ms"
+    name: "accounts-ms"
     
 server:
   port: 0
