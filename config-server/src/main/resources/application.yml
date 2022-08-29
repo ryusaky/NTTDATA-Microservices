@@ -5,7 +5,10 @@ spring:
     config:
       server:
         git:
-          uri: ""
+          uri: "https://github.com/ryusaky/config-server.git"
+          #uri: "https://github.com/ryusaky/NTTDATA-Microservices.git"
+          #username: "ryusaky"
+          #password: "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"
           clone-on-start: true
     
 server:
