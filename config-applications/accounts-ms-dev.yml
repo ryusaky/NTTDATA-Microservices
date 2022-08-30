@@ -10,4 +10,4 @@ eureka:
     instance-id: "${spring.application.name}:${random.uuid}"
 
 app:
-  testProp: "Propiedad de prueba"    
+  testProp: "Propiedad de prueba actualizada"    
