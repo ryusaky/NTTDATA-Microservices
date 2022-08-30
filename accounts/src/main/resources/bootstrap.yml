@@ -1,10 +1,15 @@
 spring:
+  application:
+    name: "accounts-ms"
   cloud:
     config:
       uri: "http://localhost:8888"
       profile: dev
-  application:
-    name: "accounts-ms"
+  rabbitmq:
+    host: "fly-01.rmq.cloudamqp.com"
+    port: 1883
+    username: "wtxpceky:wtxpceky"
+    password: "ULuwcw4La4zeR6UrdWmhcz0c5_iiyoj0"
       
 management:
   endpoints:
