@@ -1,7 +1,10 @@
 spring:
   application:
     name: "credits-ms"
-    
+  cloud:
+    config:
+      profile: dev
+        
 server:
   port: 0
   
