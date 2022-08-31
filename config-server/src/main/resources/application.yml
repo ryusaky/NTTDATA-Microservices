@@ -6,10 +6,10 @@ spring:
       server:
         git:
           default-label: main
-          uri: ${GITHUB_URL_REPOSITORY} #"https://github.com/ryusaky/NTTDATA-Microservices.git"
+          uri: "https://github.com/ryusaky/NTTDATA-Microservices.git" #${GITHUB_URL_REPOSITORY}
           search-paths: "config-applications"
-          username: ${GITHUB_USER_NAME} #"ryusaky"
-          password: ${GITHUB_TOKEN_ACCESS} #"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"
+          username: "ryusaky" #${GITHUB_USER_NAME} 
+          password: "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" #${GITHUB_TOKEN_ACCESS}
           clone-on-start: true
     
 server:
