@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: "api-gateway"
+  cloud:
+    gateway:
+      routes:
+      - id: "accounts-ms"
+        uri: "lb://ACCOUNTS-MS"
+        predicates:
+        - Path=/api/v2/acounts/** , /category/**
+      - id: "credits-ms"
+        uri: "lb://CREDITS-MS"
+        predicates:
+        - "Path=/api/v2/credits/**"
+      - id: "customers-ms"
+        uri: "lb://CUSTOMERS-MS"
+        predicates:
+        - "Path=/api/v2/customers/**"
+                   
+      discovery:
+        locator:
+          enabled: true
+    loadbalancer:
+      ribbon:
+        enabled: false
+eureka:
+  instance:
+    instance-id: "${spring.application.name}:${random.uuid}"

@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: "accounts-ms"
+  cloud:
+    config:
+      uri: "http://localhost:8888"
+      profile: dev
+  rabbitmq:
+    host: "localhost" #"fly-01.rmq.cloudamqp.com"
+    port: 5672
+    username: "guest" #"wtxpceky:wtxpceky"
+    password: "guest" #"ULuwcw4La4zeR6UrdWmhcz0c5_iiyoj0"
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

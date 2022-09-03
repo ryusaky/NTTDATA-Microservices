@@ -10,5 +10,6 @@ eureka:
     instance-id: "${spring.application.name}:${random.uuid}"
 
 app:
+  versionApp: "v2.0.0"
   testProp: "Propiedad de prueba actualizada for credits with rabbitmq"    
     
