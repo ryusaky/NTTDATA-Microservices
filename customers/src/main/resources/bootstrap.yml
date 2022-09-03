@@ -1,6 +1,6 @@
 spring:
   application:
-    name: "accounts-ms"
+    name: "customers-ms"
   cloud:
     config:
       uri: "http://localhost:8888"
@@ -10,9 +10,19 @@ spring:
     port: 5672
     username: "guest" #"wtxpceky:wtxpceky"
     password: "guest" #"ULuwcw4La4zeR6UrdWmhcz0c5_iiyoj0"
+
+server:
+  port: 0
       
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+        
+app:
+  versionMs: "v2.0.0"
+  route-customer: 
+    name: "customers"
+    description: "Service for management of Customers"
+  testProp: "propertie update with rabbitmq"    
