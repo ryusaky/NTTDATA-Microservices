@@ -15,7 +15,7 @@ spring:
       - id: "customers-ms"
         uri: "lb://CUSTOMERS-MS"
         predicates:
-        - "Path=/api/v2/customers/**"
+        - "Path=/api/customers/v2.0.0/**"
                    
       discovery:
         locator:
