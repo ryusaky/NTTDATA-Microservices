@@ -1,5 +1,7 @@
 package com.bootcamp.bank.components.common.globals.dto;
 
-public class AccountDto {
+import com.bootcamp.bank.components.dto.BaseDto;
+
+public class AccountDto extends BaseDto{
 
 }

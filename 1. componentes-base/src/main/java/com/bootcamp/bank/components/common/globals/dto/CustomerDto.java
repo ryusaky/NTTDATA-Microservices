@@ -1,15 +1,19 @@
 package com.bootcamp.bank.components.common.globals.dto;
 
+import com.bootcamp.bank.components.dto.BaseDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerDto {
+public class CustomerDto extends BaseDto{
 	private String id;
 	private String name;
 	private String lastName;
@@ -18,4 +22,5 @@ public class CustomerDto {
 	private String documentType;
 	private String documentNumber;
 	private String perfil;
+	
 }
