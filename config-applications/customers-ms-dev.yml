@@ -15,7 +15,7 @@ eureka:
     instance-id: "${spring.application.name}:${random.uuid}"
 
 app:
-  versionMs: "v2.0.0"
+  versionMs: "v2.0.1"
   route-customer: 
     name: "customers"
     description: "Service for management of Customers"
