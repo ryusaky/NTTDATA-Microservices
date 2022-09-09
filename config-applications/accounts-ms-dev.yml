@@ -3,14 +3,17 @@ spring:
     name: "accounts-ms"
     
 server:
-  port: 0
+  port: ${PORT:${SERVER_PORT:0}}
   
 eureka:
+  client:
+    serviceUrl:
+      defaultZone: 'http://localhost:10002/eureka/'
   instance:
     instance-id: "${spring.application.name}:${random.uuid}"
 
 app:
-  versionApp: "v2.0.0"
+  versionApp: "v2.0.1"
   testProp: "propertie update with rabbitmq"    
 
 resilience4j:

@@ -52,21 +52,21 @@ services:
 #        condition: service_healthy
 #      api-gateway:
 #        condition: service_healthy        
-  customers:
-    image: ms-customers
-    build:
-      context: ./customers
-    ports:
-      - '5052:5052'
-    networks:
-      - 'ms-network'
-    depends_on:
-      config-server:
-        condition: service_healthy
-      discovery-service:
-        condition: service_healthy
-      api-gateway:
-        condition: service_healthy
+#  customers:
+#    image: ms-customers
+#    build:
+#      context: ./customers
+#    ports:
+#      - '5052:5052'
+#    networks:
+#      - 'ms-network'
+#    depends_on:
+#      config-server:
+#        condition: service_healthy
+#      discovery-service:
+#        condition: service_healthy
+#      api-gateway:
+#        condition: service_healthy
 #  credits:
 #    image: ms-credits
 #    build:
