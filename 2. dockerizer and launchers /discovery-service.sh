@@ -9,4 +9,4 @@ echo "JAR generado"
 docker build -t discovery-service .
 echo "IMAGEN creada"
 #5.- Ejecución del contenedor especificandole el puerto que tendrá habilitado
-docker run -p 8761:8761 discovery-service
+docker run -p 8761:8761 -d --name discovery-service discovery-service

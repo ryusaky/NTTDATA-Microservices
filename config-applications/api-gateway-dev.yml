@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: "accounts-ms"
+        uri: "lb://ACCOUNTS-MS"
+        predicates:
+        - "Path=/api/acounts/v2.0.1/**"
+      - id: "credits-ms"
+        uri: "lb://CREDITS-MS"
+        predicates:
+        - "Path=/api/credits/v2.0.1/**"
+      - id: "customers-ms"
+        uri: "lb://CUSTOMERS-MS"
+        predicates:
+        - "Path=/api/customers/v2.0.1/**"
+      - id: "movements-ms"
+        uri: "lb://MOVEMENTS-MS"
+        predicates:
+        - "Path=/api/movements/v2.0.1/**"
+                   
+      discovery:
+        locator:
+          enabled: true
+    loadbalancer:
+      ribbon:
+        enabled: false

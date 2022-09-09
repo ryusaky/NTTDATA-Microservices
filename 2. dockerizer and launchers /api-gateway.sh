@@ -9,4 +9,4 @@ echo "JAR generado"
 docker build -t api-gateway .
 echo "IMAGEN creada"
 #5.- Ejecución del contenedor especificandole el puerto que tendrá habilitado
-docker run -p 8080:8080 api-gateway
+docker run -p 8080:8080 -d --name api-gateway api-gateway

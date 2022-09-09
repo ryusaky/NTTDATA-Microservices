@@ -9,4 +9,4 @@ echo "JAR generado"
 docker build -t config-server .
 echo "IMAGEN creada"
 #5.- Ejecución del contenedor especificandole el puerto que tendrá habilitado
-docker run -p 8888:8888 config-server
+docker run -p 8888:8888 -d --name config-server config-server

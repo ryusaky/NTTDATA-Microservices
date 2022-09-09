@@ -1,9 +1,11 @@
 spring:
   application:
     name: "customers-ms"
+  config:
+    import: configserver:http://localhost:10000
   cloud:
     config:
-      uri: "http://localhost:8888"
+#      uri: "http://localhost:8888"
       profile: dev
   rabbitmq:
     host: "localhost" #"fly-01.rmq.cloudamqp.com"
@@ -21,7 +23,7 @@ management:
         include: "*"
         
 app:
-  versionMs: "v2.0.0"
+  versionMs: "v2.0.1"
   route-customer: 
     name: "customers"
     description: "Service for management of Customers"

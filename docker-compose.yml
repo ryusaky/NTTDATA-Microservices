@@ -1,0 +1,101 @@
+services:
+  config-server:
+    image: config-server
+    build:
+      context: ./config-server
+    healthcheck:
+      test: 'exit 0'
+    ports:
+      - '10000:10000'
+    networks:
+      - 'ms-network'
+  discovery-service:
+    image: discovery-service
+    build:
+      context: ./discovery-service
+    healthcheck:
+      test: 'exit 0'
+    ports:
+      - '10001:10001'
+    networks:
+      - 'ms-network'
+    depends_on:
+      config-server:
+        condition: service_healthy
+  api-gateway:
+    image: api-gateway
+    build:
+      context: ./api-gateway
+    healthcheck:
+      test: 'exit 0'
+    ports:
+      - '8080:8080'
+    networks:
+      - 'ms-network'
+    depends_on:
+      config-server:
+        condition: service_healthy
+      discovery-service:
+        condition: service_healthy
+#  accounts:
+#    image: ms-accounts
+#    build:
+#      context: ./accounts
+#    ports:
+#      - '5051:5051'
+#    networks:
+#      - 'ms-network'
+#    depends_on:
+#      config-server:
+#        condition: service_healthy
+#      discovery-service:
+#        condition: service_healthy
+#      api-gateway:
+#        condition: service_healthy        
+  customers:
+    image: ms-customers
+    build:
+      context: ./customers
+    ports:
+      - '5052:5052'
+    networks:
+      - 'ms-network'
+    depends_on:
+      config-server:
+        condition: service_healthy
+      discovery-service:
+        condition: service_healthy
+      api-gateway:
+        condition: service_healthy
+#  credits:
+#    image: ms-credits
+#    build:
+#      context: ./credits
+#    ports:
+#      - '5053:5053'
+#    networks:
+#      - 'ms-network'
+#    depends_on:
+#      config-server:
+#        condition: service_healthy
+#      discovery-service:
+#        condition: service_healthy
+#      api-gateway:
+#        condition: service_healthy
+#  movements:
+#    image: ms-movements
+#    build:
+#      context: ./movements
+#    ports:
+#      - '5054:5054'
+#    networks:
+#      - 'ms-network'
+#    depends_on:
+#      config-server:
+#        condition: service_healthy
+#      discovery-service:
+#        condition: service_healthy
+#      api-gateway:
+#        condition: service_healthy
+networks:
+ ms-network: 
