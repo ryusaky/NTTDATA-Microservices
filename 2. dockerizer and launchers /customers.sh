@@ -9,4 +9,4 @@ echo "JAR generado"
 docker build -t customers .
 echo "IMAGEN creada"
 #5.- Ejecución del contenedor especificandole el puerto que tendrá habilitado
-docker run -p 5052:5052 -d --name lpaz/customers customers
+docker run -p 5052:5052 -d --name customers customers
