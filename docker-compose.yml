@@ -1,6 +1,6 @@
 services:
   config-server:
-    image: config-server
+    image: lpaz/config-server
     build:
       context: ./config-server
     healthcheck:
@@ -10,7 +10,7 @@ services:
     networks:
       - 'ms-network'
   discovery-service:
-    image: discovery-service
+    image: lpaz/discovery-service
     build:
       context: ./discovery-service
     healthcheck:
@@ -23,7 +23,7 @@ services:
       config-server:
         condition: service_healthy
   api-gateway:
-    image: api-gateway
+    image: lpaz/api-gateway
     build:
       context: ./api-gateway
     healthcheck:
