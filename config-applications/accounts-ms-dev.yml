@@ -1,6 +1,11 @@
 spring:
   application:
     name: "accounts-ms"
+  data:
+    mongodb:
+      database: project01
+      host: localhost
+      port: 27017  
     
 server:
   port: ${PORT:${SERVER_PORT:0}}
@@ -8,13 +13,16 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: 'http://discovery-service:10001/eureka/'
+      defaultZone: 'http://localhost:10001/eureka/'
   instance:
     instance-id: "${spring.application.name}:${random.uuid}"
 
 app:
-  versionApp: "v2.0.1"
-  testProp: "propertie update with rabbitmq"    
+  versionMs: "v2.0.1"
+  route-account: 
+    name: "accounts"
+    description: "Service for management of Customers"
+  testProp: "propertie update with rabbitmq"  
 
 resilience4j:
   circuitbreaker:
@@ -27,8 +35,10 @@ resilience4j:
             slidingWindowSize: 10
             permittedNumberOfCallsInHalfOpenState: 3
             slidingWindowType: TIME_BASED
-            minimumNumberOfCalls: 20
-            waitDurationInOpenState: 50s
+            minimumNumberOfCalls: 4
+            waitDurationInOpenState: 5s
             failureRateThreshold: 50
             eventConsumerBufferSize: 10
-            recordFailurePredicate: io.github.robwin.exception.RecordFailurePredicate
+            #recordFailurePredicate: io.github.robwin.exception.RecordFailurePredicate
+            
+            
