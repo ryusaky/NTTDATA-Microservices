@@ -2,7 +2,7 @@ spring:
   application:
     name: api-gateway
   config:
-    import: configserver:http://config-service:10000
+    import: configserver:http://localhost:10000
 
 #eureka:
 #  instance:

@@ -1,6 +1,7 @@
 services:
   config-server:
-    image: lpaz/config-server
+    image: config-server
+    command: ./config-server mvn clean install
     build:
       context: ./config-server
     healthcheck:
@@ -12,7 +13,8 @@ services:
         aliases:
          - config-service
   discovery-service:
-    image: lpaz/discovery-service
+    image: discovery-service
+    command: ./discovery-service mvn clean install
     build:
       context: ./discovery-service
     healthcheck:
@@ -27,7 +29,8 @@ services:
       config-server:
         condition: service_healthy
   api-gateway:
-    image: lpaz/api-gateway
+    image: api-gateway
+    command: ./api-gateway mvn clean install
     build:
       context: ./api-gateway
     healthcheck:
@@ -60,6 +63,7 @@ services:
 #        condition: service_healthy        
   customers:
     image: ms-customers
+    command: ./customers mvn clean install
     build:
       context: ./customers
     ports:
@@ -113,4 +117,4 @@ services:
 ##    ipam:
 ##      driver: default
 networks:
-  ms-network: 
+  ms_network: 
