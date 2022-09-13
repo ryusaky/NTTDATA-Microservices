@@ -8,7 +8,9 @@ services:
     ports:
       - '10000:10000'
     networks:
-      - 'ms-network'
+      ms_network:
+        aliases:
+         - config-service
   discovery-service:
     image: lpaz/discovery-service
     build:
@@ -18,7 +20,9 @@ services:
     ports:
       - '10001:10001'
     networks:
-      - 'ms-network'
+      ms_network:
+        aliases:
+         - registry-service
     depends_on:
       config-server:
         condition: service_healthy
@@ -31,7 +35,9 @@ services:
     ports:
       - '8080:8080'
     networks:
-      - 'ms-network'
+      ms_network:
+        aliases:
+         - gateway-service
     depends_on:
       config-server:
         condition: service_healthy
@@ -52,21 +58,23 @@ services:
 #        condition: service_healthy
 #      api-gateway:
 #        condition: service_healthy        
-#  customers:
-#    image: ms-customers
-#    build:
-#      context: ./customers
-#    ports:
-#      - '5052:5052'
-#    networks:
-#      - 'ms-network'
-#    depends_on:
-#      config-server:
-#        condition: service_healthy
-#      discovery-service:
-#        condition: service_healthy
-#      api-gateway:
-#        condition: service_healthy
+  customers:
+    image: ms-customers
+    build:
+      context: ./customers
+    ports:
+      - '5052:5052'
+    networks:
+      ms_network:
+        aliases:
+         - customers_host
+    depends_on:
+      config-server:
+        condition: service_healthy
+      discovery-service:
+        condition: service_healthy
+      api-gateway:
+        condition: service_healthy
 #  credits:
 #    image: ms-credits
 #    build:
@@ -97,5 +105,12 @@ services:
 #        condition: service_healthy
 #      api-gateway:
 #        condition: service_healthy
+
+##networks:
+##  ms_network:
+##    name: ms_net
+##    driver: bridge
+##    ipam:
+##      driver: default
 networks:
- ms-network: 
+  ms-network: 

@@ -6,7 +6,7 @@ spring:
       server:
         git:
           #default-label: main
-          default-label: feature/ft-add-github-actions
+          default-label: feature/ft-add-resilience4j
           uri: "https://github.com/ryusaky/NTTDATA-Microservices.git" #${GITHUB_URL_REPOSITORY}
           search-paths: "config-applications"
           username: "ryusaky" #${GITHUB_USER_NAME} 

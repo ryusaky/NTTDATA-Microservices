@@ -1,14 +1,22 @@
 server:
   port: 8080
+
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     serviceUrl:
-      defaultZone: 'http://discovery-service:10001/eureka/'
+      defaultZone: 'http://registry-service:10001/eureka/'
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+
+      
 spring:
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
       routes:
       - id: "accounts-ms"
         uri: "lb://ACCOUNTS-MS"
@@ -27,9 +35,9 @@ spring:
         predicates:
         - "Path=/api/movements/v2.0.1/**"
                    
-      discovery:
-        locator:
-          enabled: true
-    loadbalancer:
-      ribbon:
-        enabled: false
+#      discovery:
+#        locator:
+#          enabled: true
+#    loadbalancer:
+#      ribbon:
+#        enabled: false
