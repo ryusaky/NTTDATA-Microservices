@@ -8,6 +8,7 @@ import com.bootcamp.bank.accounts.service.IAccountService;
 import com.bootcamp.bank.components.base.controllers.SimpleApiController;
 import com.bootcamp.bank.components.common.globals.dto.AccountDto;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import reactor.core.publisher.Mono;
 
 @RestController
