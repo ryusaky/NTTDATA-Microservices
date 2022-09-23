@@ -1,9 +1,24 @@
-server:
-  port: 8761
-  
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-  instance: 
-    prefer-ip-address: true
+#server:
+#  port: 8761
+
+#spring:
+#  application:
+#    name: EUREKA-SERVER
+
+#eureka:
+#  instance:
+#    hostname: localhost
+#    prefer-ip-address: true
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#    use-dns-for-fetching-service-urls: false
+#    service-url:
+#      defaultZone: "http://${eureka.instance.hostname}:${server.port}/eureka"
+      
+#logging:
+#  level:
+#    com:
+#      netflix:
+#        eureka: off
+#        discovery: off

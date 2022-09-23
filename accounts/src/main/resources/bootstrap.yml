@@ -1,18 +1,31 @@
 spring:
   application:
     name: "accounts-ms"
+#  config:
+#    import: configserver:http://localhost:10000
   cloud:
     config:
-      uri: "http://localhost:8888"
+      uri: "http://localhost:10000"
       profile: dev
-  rabbitmq:
-    host: "localhost" #"fly-01.rmq.cloudamqp.com"
-    port: 5672
-    username: "guest" #"wtxpceky:wtxpceky"
-    password: "guest" #"ULuwcw4La4zeR6UrdWmhcz0c5_iiyoj0"
+#  rabbitmq:
+#    host: "localhost" #"fly-01.rmq.cloudamqp.com"
+#    port: 5672
+#    username: "guest" #"wtxpceky:wtxpceky"
+#    password: "guest" #"ULuwcw4La4zeR6UrdWmhcz0c5_iiyoj0"
+
+#server:
+#  port: 0
       
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+        
+#app:
+#  versionMs: "v2.0.1"
+#  route-customer: 
+#    name: "customers"
+#    description: "Service for management of Customers"
+#  testProp: "propertie update with rabbitmq"
+

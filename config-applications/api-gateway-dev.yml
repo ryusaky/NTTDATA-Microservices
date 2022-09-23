@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: 'http://localhost:10001/eureka/'
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+
+      
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: "accounts-ms"
+        uri: "lb://ACCOUNTS-MS"
+        predicates:
+        - "Path=/api/acounts/v2.0.1/**"
+      - id: "credits-ms"
+        uri: "lb://CREDITS-MS"
+        predicates:
+        - "Path=/api/credits/v2.0.1/**"
+      - id: "customers-ms"
+        uri: "lb://CUSTOMERS-MS"
+        predicates:
+        - "Path=/api/customers/v2.0.1/**"
+      - id: "movements-ms"
+        uri: "lb://MOVEMENTS-MS"
+        predicates:
+        - "Path=/api/movements/v2.0.1/**"
+                   
+#      discovery:
+#        locator:
+#          enabled: true
+#    loadbalancer:
+#      ribbon:
+#        enabled: false

@@ -1,6 +1,7 @@
-package com.bootcamp.bank.components.common.globals.dto;
+package com.bootcamp.bank.accounts.entity;
 
-import com.bootcamp.bank.components.dto.BaseDto;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,10 +14,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountDto extends BaseDto{
-
+@Document(collection = "accounts")
+public class Account {
+	@Id
 	private String id;
 	private short accountType;
 	private short operationsLimit;
 	private double maintenance;
+	
 }
