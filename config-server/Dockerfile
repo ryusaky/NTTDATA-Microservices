@@ -1,5 +1,5 @@
 FROM openjdk:17
 VOLUME /tmp
-#COPY target/*.jar config-server.jar
-EXPOSE 8888
+#RUN mvn clean install
+COPY target/config-server.jar config-server.jar
 ENTRYPOINT ["java","-jar","/config-server.jar"]

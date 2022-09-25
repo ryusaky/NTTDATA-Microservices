@@ -1,5 +1,5 @@
 FROM openjdk:17
 VOLUME /tmp
-#COPY target/*.jar discovery-service.jar
-EXPOSE 8761
+#RUN mvn clean install
+COPY target/discovery-service.jar discovery-service.jar
 ENTRYPOINT ["java","-jar","/discovery-service.jar"]
